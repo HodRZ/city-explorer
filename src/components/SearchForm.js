@@ -5,7 +5,6 @@ import { Form, Button } from 'react-bootstrap';
 class SearchForm extends Component {
     onSubmit = (e) => {
         e.preventDefault();
-        console.log(e.target.cityName.value)
         this.props.handleSearch(e.target.cityName.value)
     }
 

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import './App.css';
-import SearchForm from './components/Form';
+import SearchForm from './components/SearchForm';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CityList from './components/CityList';
 import MapDisplay from './components/MapDisplay';
@@ -15,8 +15,11 @@ class App extends Component {
       selectedMap: ''
     }
   }
+
   handleSearch = async (cityName) => {
-    const map = await axios.get(`https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATIONAPI_KEY}&q=${cityName}&format=json`)
+    const map = await axios.get(`https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATIONAPI_KEY}&q=${cityName}&format=json`).catch(function (error) {
+      alert(`check the name of the city, ${error.toJSON().message}`);
+    });
     const searchData = map.data.reduce((searchData, city) => {
       searchData.push({ cityName: city.display_name, lat: city.lat, lon: city.lon })
       return searchData
@@ -26,12 +29,11 @@ class App extends Component {
     })
   }
   showMap = async (city) => {
-    const selected = await axios.get(`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONAPI_KEY}&center=${city.lat},${city.lon}`)
+    const selected = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONAPI_KEY}&center=${city.lat},${city.lon}&zoom=8`
     this.setState({
       showMap: true,
       selectedCity: city,
       selectedMap: selected
-
     })
   };
   onMapHide = () => {
@@ -39,8 +41,9 @@ class App extends Component {
       showMap: false,
     })
   }
+
+
   render() {
-    console.log(this.state)
     return (
       <>
         <SearchForm handleSearch={this.handleSearch} />

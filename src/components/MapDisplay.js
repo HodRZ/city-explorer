@@ -3,14 +3,8 @@ import { Modal, Image, Button } from 'react-bootstrap';
 
 
 class MapDisplay extends Component {
-    // handleClose = () => {
-    //     this.props.onHide()
-    // }
-
     render() {
-        console.log(this.props.selectedCity)
         return (
-
             <Modal show={this.props.show}
                 size="lg"
                 aria-labelledby="contained-modal-title-vcenter"
@@ -25,7 +19,6 @@ class MapDisplay extends Component {
                     <p>
                         {this.props.selectedCity.cityName}
                     </p>
-                    {/* <p>Number of Horns:{this.props.selectedAnimal.horns}</p> */}
                 </Modal.Body>
                 <Modal.Footer>
                     <Button onClick={this.props.onHide} >Close</Button>
