@@ -1,25 +1,38 @@
-import logo from './logo.svg';
+import axios from 'axios';
+import React, { Component } from 'react';
 import './App.css';
+import Form from './components/form';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      mapData: []
+    }
+  }
+  renderMap = (data) => {
+    for (let city in data) {
+      return <Form cityData={city} search={this.state.handleSearch} />
+    }
+  }
+  handleSearch = async (cityName) => {
+    const map = await axios.get(`https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATIONAPI_KEY}&q=${cityName}&format=json`)
+
+    this.setState({
+      mapData: [...map.data]
+    })
+    console.log(map.data)
+  }
+  render() {
+    return (
+      <>
+        {
+          <Form handleSearch={this.handleSearch} />
+        }
+      </>
+    );
+  }
 }
 
 export default App;
