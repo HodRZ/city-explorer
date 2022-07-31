@@ -3,17 +3,13 @@ import React, { Component } from 'react';
 import './App.css';
 import SearchForm from './components/Form';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import CityList from './components/CityList';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       mapData: []
-    }
-  }
-  renderMap = (data) => {
-    for (let city in data) {
-      return <SearchForm cityData={city} search={this.state.handleSearch} />
     }
   }
   handleSearch = async (cityName) => {
@@ -27,15 +23,16 @@ class App extends Component {
     this.setState({
       mapData: searchData
     })
-    // console.log(map.data)
+    // console.log(mapData)
   }
   render() {
-    console.log(this.state)
+    console.log(this.state.mapData)
     return (
       <>
         {
           <SearchForm handleSearch={this.handleSearch} />
         }
+        <CityList cityData={this.state.mapData} />
       </>
     );
   }
