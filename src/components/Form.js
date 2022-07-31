@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
 
 
-class form extends Component {
+class SearchForm extends Component {
     onSubmit = (e) => {
         e.preventDefault();
         console.log(e.target.cityName.value)
@@ -24,4 +24,4 @@ class form extends Component {
     }
 }
 
-export default form;
+export default SearchForm;
