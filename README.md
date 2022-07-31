@@ -1,7 +1,7 @@
 # City Explorer
 
 **Author**: Hodaifa Zawahreh
-**Version**: 1.0.0
+**Version**: 0.2.0
 
 **[live URL](https://hods-city-explorer.netlify.app)**
 
