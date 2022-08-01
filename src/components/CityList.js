@@ -10,13 +10,11 @@ class CityList extends Component {
             <>
                 <Row xs={1} md={2} className="g-4">
 
-                    {this.props.cityData.map((city) => {
-                        return (<Col>
-                            <CityCard city={city} showMap={this.props.showMap} />
-                        </Col>)
-                    })
 
-                    }
+                    <Col>
+                        <CityCard city={this.props.cityData} map={this.props.mapData} />
+                    </Col>
+
 
                 </Row>
             </>

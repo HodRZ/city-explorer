@@ -9,10 +9,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      mapData: [],
-      showMap: false,
+      mapData: '',
       selectedCity: {},
-      selectedMap: ''
     }
   }
 
@@ -25,29 +23,18 @@ class App extends Component {
       return searchData
     }, [])
     this.setState({
-      mapData: searchData
+      mapData: searchData[0],
+      selectedMap: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONAPI_KEY}&center=${searchData[0].lat},${searchData[0].lon}&zoom=12`
     })
   }
-  showMap = async (city) => {
-    const selected = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONAPI_KEY}&center=${city.lat},${city.lon}&zoom=8`
-    this.setState({
-      showMap: true,
-      selectedCity: city,
-      selectedMap: selected
-    })
-  };
-  onMapHide = () => {
-    this.setState({
-      showMap: false,
-    })
-  }
-
 
   render() {
     return (
       <>
         <SearchForm handleSearch={this.handleSearch} />
-        <CityList cityData={this.state.mapData} showMap={this.showMap} />
+        {this.state.mapData &&
+          <CityList cityData={this.state.mapData} showMap={this.showMap} mapData={this.state.selectedMap} />
+        }
         <MapDisplay selectedCity={this.state.selectedCity} onHide={this.onMapHide} show={this.state.showMap} selectedMap={this.state.selectedMap} />
       </>
     );
