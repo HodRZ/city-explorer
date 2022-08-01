@@ -6,7 +6,6 @@
 
 **[live URL](https://hods-city-explorer.netlify.app)**
 
-
 ## Overview
 
 This App helps the user explore a city by providing location info and a map
@@ -26,11 +25,11 @@ This App will manily be built using React JS
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
-[Bashar Alzraigat](https://github.com/BasharAlzrigat)
-=======
+Bashar Alzrigat [Github](https://github.com/BasharAlzrigat)
 
 ---
-### Lab 01 details:
+
+### Lab 01 details
 
 - Name of feature:
   - Search form
@@ -46,20 +45,28 @@ This App will manily be built using React JS
 
 - Actual time needed to complete: 2:00 hours
 
-### Lab 02 details:
+![lab01 wrrc](./readmeImages/lab01%20wrrc.png)
 
-Name of feature:
+---
 
-1- show city weather forecast
+### Lab 02 details
 
-2- Basic routing
+- Name of feature:
 
-3- Handle errors
+  - show city weather forecast
 
-Estimate of time needed to complete: 3 hourse
+  - Basic routing
 
-Start time: 20:30
+  - Handle errors
 
-Finish time: 23:20
+- Estimate of time needed to complete: 3 hours
 
-Actual time needed to complete: 2:15
+- Start time: 20:30
+
+- Finish time: 23:20
+
+- Actual time needed to complete: 2:15
+
+![lab02 wrrc](./readmeImages/lab02%20wrrc.png)
+
+---
