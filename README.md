@@ -1,7 +1,7 @@
 # City Explorer
 
 **Author**: Hodaifa Zawahreh
-**Version**: 1.0.0
+**Version**: 1.5.0
 
 ## Overview
 
@@ -21,3 +21,26 @@ This App will manily be built using React JS
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+---
+
+Name of feature:
+
+1- City search
+
+2- Show city map
+
+3- Show city location
+
+4- show city weather forecast
+
+5- Basic routing
+
+6- Handle errors
+
+Estimate of time needed to complete:
+
+Start time: _____
+
+Finish time: _____
+
+Actual time needed to complete: _____
