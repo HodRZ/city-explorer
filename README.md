@@ -1,9 +1,11 @@
 # City Explorer
 
 **Author**: Hodaifa Zawahreh
-**Version**: 0.2.0
+
+**Version**: 1.5.0
 
 **[live URL](https://hods-city-explorer.netlify.app)**
+
 
 ## Overview
 
@@ -24,6 +26,8 @@ This App will manily be built using React JS
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+[Bashar Alzraigat](https://github.com/BasharAlzrigat)
+=======
 
 ---
 ### Lab 01 details:
@@ -41,3 +45,21 @@ This App will manily be built using React JS
 - Finish time: 23:30
 
 - Actual time needed to complete: 2:00 hours
+
+### Lab 02 details:
+
+Name of feature:
+
+1- show city weather forecast
+
+2- Basic routing
+
+3- Handle errors
+
+Estimate of time needed to complete: 3 hourse
+
+Start time: 20:30
+
+Finish time: 23:20
+
+Actual time needed to complete: 2:15

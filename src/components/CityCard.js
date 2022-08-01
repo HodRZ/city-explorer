@@ -1,23 +1,28 @@
 import React, { Component } from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
+import Weather from './weather';
+
 
 
 class CityCard extends Component {
-    showMap = () => {
-        this.props.showMap(this.props.city)
-    }
+
 
     render() {
+        console.log(this.props.weather)
         return (
             <Card>
-                {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
+                <Card.Img variant="top" src={this.props.map} />
                 <Card.Body>
-                    {/* <Card.Title>{city.cityName}</Card.Title> */}
                     {this.props.city.cityName}
                 </Card.Body>
                 <Card.Footer>
-                    <Button variant="primary" onClick={this.showMap}>Show Map</Button>{'   '}
-                    <small className="text-muted">Latitude:{this.props.city.lat}, Longitude:{this.props.city.lon}</small>
+                    <small className="text-muted">Latitude:{this.props.city.lat}, Longitude:{this.props.city.lon}</small><br />
+                    {
+                        this.props.weather.data.map((date) => {
+                            return <Weather date={date} />
+                        })
+                    }
+
                 </Card.Footer>
             </Card>
         );
