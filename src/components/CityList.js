@@ -12,7 +12,7 @@ class CityList extends Component {
 
 
                     <Col>
-                        <CityCard city={this.props.cityData} map={this.props.mapData} />
+                        <CityCard city={this.props.cityData} map={this.props.mapData} weather={this.props.weather} />
                     </Col>
 
 
