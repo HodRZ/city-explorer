@@ -8,9 +8,8 @@ class CityCard extends Component {
 
 
     render() {
-        console.log(this.props.weather)
         return (
-            <Card>
+            <Card style={{ width: '70%' }}>
                 <Card.Img variant="top" src={this.props.map} />
                 <Card.Body>
                     {this.props.city.cityName}

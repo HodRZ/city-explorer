@@ -37,19 +37,22 @@ class App extends Component {
         confirmButtonText: '✔'
       })
     });
+    const movieData = await axios.get(`http://localhost:3001/movies?queryName=${cityName}`)
     this.setState({
       mapData: searchData[0],
       weather: weatherData,
+      movies: movieData.data,
       selectedMap: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONAPI_KEY}&center=${searchData[0].lat},${searchData[0].lon}&zoom=12`
     })
   }
 
   render() {
+    // console.log(this.state.movies)
     return (
       <>
         <SearchForm handleSearch={this.handleSearch} />
         {this.state.mapData && this.state.weather &&
-          <CityList cityData={this.state.mapData} showMap={this.showMap} weather={this.state.weather} mapData={this.state.selectedMap} />
+          <CityList cityData={this.state.mapData} showMap={this.showMap} weather={this.state.weather} mapData={this.state.selectedMap} moviesData={this.state.movies} />
         }
         <MapDisplay selectedCity={this.state.selectedCity} onHide={this.onMapHide} show={this.state.showMap} selectedMap={this.state.selectedMap} />
       </>
