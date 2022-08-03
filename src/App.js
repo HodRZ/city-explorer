@@ -29,7 +29,7 @@ class App extends Component {
       searchData.push({ cityName: city.display_name, lat: city.lat, lon: city.lon })
       return searchData
     }, [])
-    const weatherData = await axios.get(`http://localhost:3001/weather?lon=${searchData[0].lon}&lat=${searchData[0].lat}&searchQuery=${cityName}`).catch(function (error) {
+    const weatherData = await axios.get(`${process.env.PORT}/weather?lon=${searchData[0].lon}&lat=${searchData[0].lat}&searchQuery=${cityName}`).catch(function (error) {
       Swal.fire({
         title: 'Sorry !',
         text: 'No data for selected city',
@@ -37,7 +37,7 @@ class App extends Component {
         confirmButtonText: '✔'
       })
     });
-    const movieData = await axios.get(`http://localhost:3001/movies?queryName=${cityName}`)
+    const movieData = await axios.get(`${process.env.PORT}/movies?queryName=${cityName}`)
     this.setState({
       mapData: searchData[0],
       weather: weatherData,
